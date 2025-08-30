@@ -63,15 +63,15 @@ To run this project locally or deploy it to AWS:
 git clone https://github.com/prasanna-chintamaneni/spotify-etl-pipeline.git
 cd spotify-etl-pipeline
 
-###2️⃣ Create & Activate Virtual Environment
+### 2️⃣ Create & Activate Virtual Environment
 python -m venv venv
 venv\Scripts\activate   # For Windows
 source venv/bin/activate  # For Mac/Linux
 
-###3️⃣ Install Dependencies (for local testing)
+### 3️⃣ Install Dependencies (for local testing)
 pip install spotipy boto3
 
-###4️⃣ Prepare Lambda Layer (for Spotipy)
+### 4️⃣ Prepare Lambda Layer (for Spotipy)
 Since AWS Lambda does not include Spotipy by default, create a Lambda Layer:
 
 mkdir python
@@ -81,10 +81,10 @@ zip -r spotipy_layer.zip python
 Upload spotipy_layer.zip in AWS Console → Lambda → Layers → Create Layer.
 Attach this layer to your Lambda function.
 
-###5️⃣ Configure AWS Credentials
+### 5️⃣ Configure AWS Credentials
 Ensure IAM role has permissions for S3, Lambda, Glue, Athena.
 
-###6️⃣ Deploy Lambda Functions
+### 6️⃣ Deploy Lambda Functions
 Extract Lambda: Fetches data from Spotify API and uploads to raw_data/to_process/ in S3.
 Transform Lambda: Cleans and restructures the raw data into albums, tracks, and artists, then stores in raw_data/processed/.
 
@@ -92,7 +92,7 @@ Transform Lambda: Cleans and restructures the raw data into albums, tracks, and 
 Create an EventBridge Rule to trigger the Extract Lambda periodically (e.g., every 1 hour/day).
 Configure S3 Trigger for the Transform Lambda whenever new raw data is uploaded.
 
-###8️⃣ Data Querying
+### 8️⃣ Data Querying
 Use AWS Glue Crawler to scan the processed data and update the catalog.
 Query datasets using Amazon Athena with SQL.
 
