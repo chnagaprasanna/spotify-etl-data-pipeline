@@ -93,6 +93,7 @@ Attach this layer to your Lambda function.
 <p align="center">
 <img width="700" height="686" alt="Screenshot 2025-08-31 031807" src="https://github.com/user-attachments/assets/befd7d47-5fa9-493f-9e36-c2b4cc511b54" />
 </p>
+
 ### 5️⃣ Configure AWS Credentials
 
 Ensure IAM role has permissions for S3, Lambda, Glue, Athena.
